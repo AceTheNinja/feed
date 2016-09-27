@@ -17,18 +17,27 @@
 	<meta charset="utf-8" />
 </head>
 <body ng-app="myApp">
-    <md-toolbar class="yellow">
-        <p class="center-align"><br />TODO App</p>
+    <md-toolbar class="red">
+
+        <div class="md-toolbar-tools" style="text-align: center;display: block;font-size: x-large">
+            <br/>
+            <h2 >
+                <span>Feed App</span>
+            </h2>
+        </div>
     </md-toolbar>
     <div ng-controller='mainController'>
         <div ng-repeat="post in posts" class="container">
             <div ng-hide="show" >
                 <div ng-hide="edit">
                     <md-card class="md-whiteframe-z2" ng-class-even="'odd'" ng-class-odd="'even'">
-                        <span class="center-align text"><br />{{post.text}}</span><br />
-                        <button class="form-control" ng-click="edit = !edit">Edit</button><br />
-                        <button class="form-control" ng-click="post = del(post);show = !show">Delete</button>
+                        <h3><span class="text" style="text-align: center;display: block">{{post.text}}</span></h3>
+                        <label>
+                            <button class="form-control" ng-click="edit = !edit">Edit</button>
+                            <button class="form-control" ng-click="post = del(post);show = !show">Delete</button>
+                        </label>
                     </md-card>
+                    <hr/>
                 </div>
                 <div ng-show="edit">
                     <input maxlength="100" type="text" ng-model="post.text" />
@@ -38,10 +47,10 @@
         </div>
         <br />
         <div class="col-md-offset-2 col-md-8">
-            want to add more
+            <h2>Here's the form, add feed!!!</h2>
             <form ng-submit="submit()" class="form-group">
-                <input  class="form-control" ng-model="newPost.text" />
-                <input class="form-control" type="submit" />
+                <label><input  class="form-control" type="text" maxlength="100" ng-model="newPost.text" placeholder="type text"/></label><br/>
+                <label><input class="form-control" type="submit" /></label>
             </form>
         </div>
     </div>
